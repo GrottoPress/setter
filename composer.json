@@ -1,0 +1,31 @@
+{
+    "name": "grottopress/getter",
+    "description": "A simple library to set/update object attributes",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "GrottoPress.com",
+            "email": "info@grottopress.com",
+            "homepage": "https://www.grottopress.com"
+        },
+        {
+          "name": "N Atta Kusi Adusei",
+          "email": "attakusiadusei@gmail.com",
+          "homepage": "https://github.com/akadusei",
+          "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/GrottoPress/getter/issues",
+        "wiki": "https://github.com/GrottoPress/getter/wiki",
+        "source": "https://github.com/GrottoPress/getter/"
+    },
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {},
+    "autoload": {
+        "classmap": [ "src/" ]
+    },
+    "autoload-dev": {}
+}
