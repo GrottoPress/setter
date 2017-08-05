@@ -6,7 +6,7 @@
  * @package GrottoPress\Setter
  * @subpackage GrottoPress\Setter\Tests
  *
- * @since 0.1.1
+ * @since 0.1.0
  *
  * @author GrottoPress (https://www.grottopress.com)
  * @author N Atta Kus Adusei (https://twitter.com/akadusei)
@@ -20,7 +20,7 @@ use GrottoPress\Setter\Setter;
 /**
  * Setter test case
  *
- * @since 0.1.1
+ * @since 0.1.0
  */
 class Setter_Test extends TestCase {
     private $example_class;
