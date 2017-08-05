@@ -1,5 +1,5 @@
 {
-    "name": "grottopress/getter",
+    "name": "grottopress/setter",
     "description": "A simple library to set/update object attributes",
     "license": "MIT",
     "authors": [
@@ -16,9 +16,9 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/GrottoPress/getter/issues",
-        "wiki": "https://github.com/GrottoPress/getter/wiki",
-        "source": "https://github.com/GrottoPress/getter/"
+        "issues": "https://github.com/GrottoPress/setter/issues",
+        "wiki": "https://github.com/GrottoPress/setter/wiki",
+        "source": "https://github.com/GrottoPress/setter/"
     },
     "require": {
         "php": ">=5.4"
