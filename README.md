@@ -15,7 +15,7 @@ Install via composer:
 
 `composer require grottopress/setter`
 
-Setter is a trait, so you need to import into your class to use it:
+*Setter* is a trait, so you need to import into your class to use it:
 
     <?php
 

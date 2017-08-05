@@ -14,8 +14,6 @@
 
 namespace GrottoPress\Setter;
 
-if ( ! trait_exists( __NAMESPACE__ . '\Setter' ) ) :
-
 /**
  * Setter
  *
@@ -35,12 +33,12 @@ trait Setter {
      * @return mixed Attribute
      */
     final public function set( $attribute, $value, $sanitize_callback = '' ) {
-        if ( ! property_exists( get_called_class(), $attribute ) ) {
-            throw new Exception( "$attribute attribute does not exist." );
+        if ( ! \property_exists( \get_called_class(), $attribute ) ) {
+            throw new \Exception( "$attribute attribute does not exist." );
         }
 
-        if ( ! in_array( $attribute, $this->settables() ) ) {
-            throw new Exception( "Setting $attribute attribute is not allowed." );
+        if ( ! \in_array( $attribute, $this->settables() ) ) {
+            throw new \Exception( "Setting $attribute attribute is not allowed." );
         }
 
         if ( ! $sanitize_callback ) {
@@ -49,11 +47,11 @@ trait Setter {
             return $this;
         }
 
-        if ( ! is_callable( $sanitize_callback ) ) {
-            throw new Exception( "$sanitize_callback is not a callable." );
+        if ( ! \is_callable( $sanitize_callback ) ) {
+            throw new \Exception( "$sanitize_callback is not a callable." );
         }
 
-        $this->$attribute = call_user_func( $sanitize_callback, $value );
+        $this->$attribute = \call_user_func( $sanitize_callback, $value );
 
         return $this;
     }
@@ -73,5 +71,3 @@ trait Setter {
         return [];
     }
 }
-
-endif;
