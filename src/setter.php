@@ -67,7 +67,5 @@ trait Setter {
      *
      * @return array Attributes.
      */
-    protected function settables() {
-        return [];
-    }
+    abstract protected function settables();
 }
