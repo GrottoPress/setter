@@ -1,10 +1,5 @@
 # Setter
 
-* Author: [@GrottoPress](https://github.com/grottopress)
-* Author Website: [https://www.grottopress.com](https://www.grottopress.com)
-* Contributor(s): [@akadusei](https://github.com/akadusei)
-* License: [GNU General Public License v2.0 or later](http://www.gnu.org/licenses/gpl-2.0.html)
-
 ## Description
 
 *Setter* is a simple library to set/update object attributes.
