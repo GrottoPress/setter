@@ -46,7 +46,7 @@ class Setter_Test extends TestCase {
         $this->example_class->set( 'att_2', '403berreta', 'intval' );
 
         $this->assertEquals( $this->example_class->get( 'att_1' ), 'Damn!' );
-        $this->assertEquals( $this->example_class->get( 'att_2' ), intval( '403berreta' ) );
+        $this->assertEquals( $this->example_class->get( 'att_2' ), \intval( '403berreta' ) );
     }
 
     public function test_setting_disallowed_atts_returns_exception() {
