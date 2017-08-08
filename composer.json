@@ -10,11 +10,11 @@
         },
         {
           "name": "N Atta Kusi Adusei",
-          "email": "attakusiadusei@gmail.com",
-          "homepage": "https://github.com/akadusei",
+          "homepage": "https://twitter.com/akadusei",
           "role": "Developer"
         }
     ],
+    "keywords": [ "oop", "setter" ],
     "support": {
         "issues": "https://github.com/GrottoPress/setter/issues",
         "wiki": "https://github.com/GrottoPress/setter/wiki",

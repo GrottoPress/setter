@@ -32,12 +32,12 @@ trait Setter {
      *
      * @return mixed Attribute
      */
-    final public function set( $attribute, $value, $sanitize_callback = '' ) {
+    final public function set( $attribute, $value, $sanitize_callback = null ) {
         if ( ! \property_exists( \get_called_class(), $attribute ) ) {
             throw new \Exception( "$attribute attribute does not exist." );
         }
 
-        if ( ! \in_array( $attribute, $this->settables() ) ) {
+        if ( ! \in_array( $attribute, ( array ) $this->settables() ) ) {
             throw new \Exception( "Setting $attribute attribute is not allowed." );
         }
 
@@ -67,7 +67,5 @@ trait Setter {
      *
      * @return array Attributes.
      */
-    protected function settables() {
-        return [];
-    }
+    abstract protected function settables();
 }
