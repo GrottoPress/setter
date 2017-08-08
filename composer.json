@@ -14,7 +14,7 @@
           "role": "Developer"
         }
     ],
-    "keywords": [ "OOP", "setter" ],
+    "keywords": [ "oop", "setter" ],
     "support": {
         "issues": "https://github.com/GrottoPress/setter/issues",
         "wiki": "https://github.com/GrottoPress/setter/wiki",
