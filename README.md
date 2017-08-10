@@ -29,6 +29,15 @@ Install via composer:
             return [ 'att_1', 'att_2' ];
         }
 
+        // Define the sanitize method
+        protected function sanitize( $attribute, $value ) {
+            if ( 'att_2' == $attribute ) {
+                return \intval( $value );
+            }
+
+            return \strval( $value );
+        }
+
         // Output attributes
         public function output( $attribute ) {
             var_dump( $attribute );
@@ -42,5 +51,5 @@ Install via composer:
 
     // Try to set attributes
     $object->set( 'att_1', 'World' )->output( 'att_1' ); // World
-    $object->set( 'att_2', '33', 'intval' )->output( 'att_2' ); // 33
+    $object->set( 'att_2', '33int' )->output( 'att_2' ); // 33
     $object->set( 'att_3' )->output( 'att_3' ); // Error: not settable
