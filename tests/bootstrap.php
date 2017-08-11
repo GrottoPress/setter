@@ -15,4 +15,4 @@
  *
  * @since 0.1.0
  */
-require_once dirname( __DIR__ ) . '/vendor/autoload.php';
+require_once \dirname( __DIR__ ) . '/vendor/autoload.php';
