@@ -70,7 +70,7 @@ trait Setter {
      * @since 0.2.0
      * @access protected
      *
-     * @return mixed Sanitnized attributes.
+     * @return mixed Sanitnized attribute.
      */
     abstract protected function sanitize_attr( $attribute, $value );
 }
