@@ -30,7 +30,7 @@ Install via composer:
         }
 
         // Define the sanitize method
-        protected function sanitize( $attribute, $value ) {
+        protected function sanitize_attr( $attribute, $value ) {
             if ( 'att_2' == $attribute ) {
                 return \intval( $value );
             }

@@ -40,7 +40,7 @@ trait Setter {
             throw new \Exception( "Setting $attribute attribute is not allowed." );
         }
 
-        $this->$attribute = $this->sanitize( $attribute, $value );
+        $this->$attribute = $this->sanitize_attr( $attribute, $value );
 
         return $this;
     }
@@ -67,10 +67,10 @@ trait Setter {
      * @var string $attribute Attribute whose value to sanitize.
      * @var mixed $value Value to sanitize.
      *
-     * @since 0.1.0
+     * @since 0.2.0
      * @access protected
      *
      * @return mixed Sanitnized attributes.
      */
-    abstract protected function sanitize( $attribute, $value );
+    abstract protected function sanitize_attr( $attribute, $value );
 }

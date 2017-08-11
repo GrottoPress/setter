@@ -46,7 +46,7 @@ class Example_Class {
         return [ 'att_1', 'att_2', 'att_3' ];
     }
 
-    protected function sanitize( $attribute, $value ) {
+    protected function sanitize_attr( $attribute, $value ) {
         if ( 'att_2' == $attribute ) {
             return \intval( $value );
         }
