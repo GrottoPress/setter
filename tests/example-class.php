@@ -34,7 +34,7 @@ class Example_Class {
 
     public function __construct() {
         $this->att_1 = 'Hello';
-        $this->att_2 = '44street';
+        $this->att_2 = 44;
         $this->att_3 = 'Hey!';
     }
 
@@ -44,5 +44,13 @@ class Example_Class {
 
     protected function gettables() {
         return [ 'att_1', 'att_2', 'att_3' ];
+    }
+
+    protected function sanitize_attr( $attribute, $value ) {
+        if ( 'att_2' == $attribute ) {
+            return \intval( $value );
+        }
+
+        return \strval( $value );
     }
 }

@@ -25,14 +25,13 @@ trait Setter {
      *
      * @var string $attribute Name of attribute to set.
      * @var mixed $value Value to set.
-     * @var callable $sanitize_callback Callback function to sanitize value.
      *
      * @since 0.1.0
      * @access public
      *
      * @return mixed Attribute
      */
-    final public function set( $attribute, $value, $sanitize_callback = null ) {
+    final public function set( $attribute, $value ) {
         if ( ! \property_exists( \get_called_class(), $attribute ) ) {
             throw new \Exception( "$attribute attribute does not exist." );
         }
@@ -41,17 +40,7 @@ trait Setter {
             throw new \Exception( "Setting $attribute attribute is not allowed." );
         }
 
-        if ( ! $sanitize_callback ) {
-            $this->$attribute = $value;
-
-            return $this;
-        }
-
-        if ( ! \is_callable( $sanitize_callback ) ) {
-            throw new \Exception( "$sanitize_callback is not a callable." );
-        }
-
-        $this->$attribute = \call_user_func( $sanitize_callback, $value );
+        $this->$attribute = $this->sanitize_attr( $attribute, $value );
 
         return $this;
     }
@@ -68,4 +57,20 @@ trait Setter {
      * @return array Attributes.
      */
     abstract protected function settables();
+
+    /**
+     * Sanitize attribute
+     *
+     * Use this to sanitize attribute before setting them
+     * when `set` is called from outside.
+     *
+     * @var string $attribute Attribute whose value to sanitize.
+     * @var mixed $value Value to sanitize.
+     *
+     * @since 0.2.0
+     * @access protected
+     *
+     * @return mixed Sanitnized attribute.
+     */
+    abstract protected function sanitize_attr( $attribute, $value );
 }
