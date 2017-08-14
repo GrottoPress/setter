@@ -52,4 +52,4 @@ Install via composer:
     // Try to set attributes
     $object->set( 'att_1', 'World' )->output( 'att_1' ); // World
     $object->set( 'att_2', '33int' )->output( 'att_2' ); // 33
-    $object->set( 'att_3' )->output( 'att_3' ); // Error: not settable
+    $object->set( 'att_3', 'xyz' )->output( 'att_3' ); // Error: not settable
