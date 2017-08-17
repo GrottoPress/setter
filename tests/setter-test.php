@@ -12,6 +12,8 @@
  * @author N Atta Kus Adusei (https://twitter.com/akadusei)
  */
 
+declare ( strict_types = 1 );
+
 namespace GrottoPress\Setter\Tests;
 
 use PHPUnit\Framework\TestCase;
@@ -32,26 +34,26 @@ class Setter_Test extends TestCase {
     }
 
     public function test_setting_allowed_atts_works() {
-		$this->example_class->set( 'att_1', 'World' );
-        $this->example_class->set( 'att_2', 555 );
+		$this->example_class->att_1 = 'World';
+        $this->example_class->att_2 = 555;
 
-        $this->assertEquals( $this->example_class->get( 'att_1' ), 'World' );
-        $this->assertEquals( $this->example_class->get( 'att_2' ), 555 );
+        $this->assertSame( $this->example_class->att_1, 'World' );
+        $this->assertSame( $this->example_class->att_2, 555 );
 	}
 
     public function test_setting_disallowed_atts_returns_exception() {
         $this->expectException( \Exception::class );
-        $this->example_class->set( 'att_3', 'Exception' );
+        $this->example_class->att_3 = 'Exception';
     }
 
     public function test_setting_invalid_atts_returns_exception() {
         $this->expectException( \Exception::class );
-        $this->example_class->set( 'att 22', '233three' );
+        $this->example_class->att_45 = '233three';
     }
 
     public function test_sanitization_works() {
-        $this->example_class->set( 'att_2', '403berreta' );
+        $this->example_class->att_2 = '403berreta';
 
-        $this->assertEquals( $this->example_class->get( 'att_2' ), \intval( '403berreta' ) );
+        $this->assertSame( $this->example_class->att_2, \intval( '403berreta' ) );
     }
 }

@@ -15,6 +15,8 @@
  * @author N Atta Kus Adusei (https://twitter.com/akadusei)
  */
 
+declare ( strict_types = 1 );
+
 namespace GrottoPress\Setter\Tests;
 
 use GrottoPress\Setter\Setter;
@@ -38,15 +40,15 @@ class Example_Class {
         $this->att_3 = 'Hey!';
     }
 
-    protected function settables() {
+    protected function settables(): array {
         return [ 'att_1', 'att_2' ];
     }
 
-    protected function gettables() {
+    protected function gettables(): array {
         return [ 'att_1', 'att_2', 'att_3' ];
     }
 
-    protected function sanitize_attr( $attribute, $value ) {
+    protected function sanitize_attr( string $attribute, $value ) {
         if ( 'att_2' == $attribute ) {
             return \intval( $value );
         }

@@ -25,12 +25,12 @@ Install via composer:
         protected $att_3;
 
         // Set your settable attributes here
-        protected function settables() {
+        protected function settables(): array {
             return [ 'att_1', 'att_2' ];
         }
 
         // Define the sanitize method
-        protected function sanitize_attr( $attribute, $value ) {
+        protected function sanitize_attr( string $attribute, $value ) {
             if ( 'att_2' == $attribute ) {
                 return \intval( $value );
             }
@@ -39,7 +39,7 @@ Install via composer:
         }
 
         // Output attributes
-        public function output( $attribute ) {
+        public function output( string $attribute ) {
             var_dump( $attribute );
         }
 
@@ -50,6 +50,11 @@ Install via composer:
     $object = new My_Class();
 
     // Try to set attributes
-    $object->set( 'att_1', 'World' )->output( 'att_1' ); // World
-    $object->set( 'att_2', '33int' )->output( 'att_2' ); // 33
-    $object->set( 'att_3', 'xyz' )->output( 'att_3' ); // Error: not settable
+    $object->att_1 = 'World';
+    $object->output( 'att_1' ); // World
+
+    $object->att_2 = 33;
+    $object->output( 'att_2' ); // 33
+
+    $object->att_3 = 'xyz';
+    $object->output( 'att_3' ); // Error: not settable

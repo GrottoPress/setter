@@ -12,6 +12,8 @@
  * @author N Atta Kus Adusei (https://twitter.com/akadusei)
  */
 
+declare ( strict_types = 1 );
+
 namespace GrottoPress\Setter;
 
 /**
@@ -31,18 +33,16 @@ trait Setter {
      *
      * @return mixed Attribute
      */
-    final public function set( $attribute, $value ) {
+    final public function __set( string $attribute, $value ) {
         if ( ! \property_exists( \get_called_class(), $attribute ) ) {
             throw new \Exception( "$attribute attribute does not exist." );
         }
 
-        if ( ! \in_array( $attribute, ( array ) $this->settables() ) ) {
+        if ( ! \in_array( $attribute, $this->settables() ) ) {
             throw new \Exception( "Setting $attribute attribute is not allowed." );
         }
 
         $this->$attribute = $this->sanitize_attr( $attribute, $value );
-
-        return $this;
     }
 
     /**
@@ -56,12 +56,12 @@ trait Setter {
      *
      * @return array Attributes.
      */
-    abstract protected function settables();
+    abstract protected function settables(): array;
 
     /**
      * Sanitize attribute
      *
-     * Use this to sanitize attribute before setting them
+     * Use this to sanitize attribute before setting it
      * when `set` is called from outside.
      *
      * @var string $attribute Attribute whose value to sanitize.
@@ -72,5 +72,5 @@ trait Setter {
      *
      * @return mixed Sanitnized attribute.
      */
-    abstract protected function sanitize_attr( $attribute, $value );
+    abstract protected function sanitize_attr( string $attribute, $value );
 }
