@@ -43,11 +43,6 @@ Install via composer:
             $this->changeMe = $newValue;
         }
 
-        // Output attributes
-        public function output( string $attribute ) {
-            var_dump( $attribute );
-        }
-
         ...
     }
 
