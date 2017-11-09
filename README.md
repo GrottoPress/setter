@@ -2,7 +2,11 @@
 
 ## Description
 
-*Setter* is a simple library to set/update object attributes.
+*Setter* allows you to set **private** object attributes directly, without calling setter methods.
+
+For example, instead of calling `$myObject->setMyAttr($newValue)`, you can just do `$myObject->myAttr = $newValue`. Under the hood, *Setter* sets your attribute by calling a private `setMyAttr()` method that you define in your class.
+
+This way, you get the benefit of syntactic sugar, while still maintaining encapsulation.
 
 ## Usage
 
@@ -14,32 +18,33 @@ Install via composer:
 
     <?php
 
-    use GrottoPress\WordPress\Setter\Setter;
+    use GrottoPress\Setter\Setter;
 
-    class My_Class {
-        // Import setter
+    class MyClass {
+        /**
+         * Import setter
+         */
         use Setter;
 
-        protected $att_1;
-        protected $att_2;
-        protected $att_3;
+        private $changeMe;
+        private $leaveMeAlone;
 
-        // Set your settable attributes here
-        protected function settables() {
-            return [ 'att_1', 'att_2' ];
+        public function __construct()
+        {
+
         }
 
-        // Define the sanitize method
-        protected function sanitize_attr( $attribute, $value ) {
-            if ( 'att_2' == $attribute ) {
-                return \intval( $value );
-            }
-
-            return \strval( $value );
+        /**
+         * Define your private setter method
+         * Method name should be of the format "set{$attrName}"
+         */
+        private function setChangeMe($newValue)
+        {
+            $this->changeMe = $newValue;
         }
 
         // Output attributes
-        public function output( $attribute ) {
+        public function output( string $attribute ) {
             var_dump( $attribute );
         }
 
@@ -47,9 +52,8 @@ Install via composer:
     }
 
     // Instantiate
-    $object = new My_Class();
+    $object = new MyClass();
 
     // Try to set attributes
-    $object->set( 'att_1', 'World' )->output( 'att_1' ); // World
-    $object->set( 'att_2', '33int' )->output( 'att_2' ); // 33
-    $object->set( 'att_3' )->output( 'att_3' ); // Error: not settable
+    $object->changeMe = 'New Me!'; // Works!
+    $object->leaveMeAlone = 'xyz'; // Error: setLeaveMeAlone() not defined
