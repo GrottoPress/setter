@@ -40,9 +40,9 @@ trait Setter
     final public function __set(string $attribute, $value)
     {
         if (!\property_exists(static::class, $attribute)) {
-            throw new Exception("'$attribute' attribute does not exist.");
+            throw new Exception("'{$attribute}' attribute does not exist.");
         }
 
-        $this->{"set$attribute"}($value);
+        $this->{"set{$attribute}"}($value);
     }
 }
