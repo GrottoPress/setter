@@ -29,8 +29,8 @@ trait SetterTrait
     /**
      * Get attribute
      *
-     * @var string $attribute Name of attribute to set.
-     * @var mixed $value Value to set.
+     * @param string $attribute Name of attribute to set.
+     * @param mixed $value Value to set.
      *
      * @since 0.4.0
      * @access public
