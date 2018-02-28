@@ -10,30 +10,45 @@ use Error;
 class SetterTest extends Unit
 {
     /**
-     * @var ExampleClass
+     * @var objectClass
      */
-    private $example;
+    private $object;
 
     protected function _before()
     {
-        $this->example = new ExampleClass();
+        $this->object = new class {
+            use SetterTrait;
+
+            private $canSet;
+            private $cannotSet;
+
+            private function setCanSet($value)
+            {
+                $this->canSet = $value;
+            }
+
+            public function getCanSet()
+            {
+                return $this->canSet;
+            }
+        };
     }
 
     public function testSetPrivateAttributeWithPrivateSetterMethodWorks()
     {
-        $this->example->canSet = 'hello';
-        $this->assertSame($this->example->canSet, 'hello');
+        $this->object->canSet = 'hello';
+        $this->assertSame($this->object->getCanSet(), 'hello');
     }
 
     public function testSetPrivateAttributeWithNoSetterMethodReturnsError()
     {
         $this->expectException(Error::class);
-        $this->example->cannotSet;
+        $this->object->cannotSet = 'Howdy!';
     }
 
     public function testSetNonExistentAtrributeReturnsException()
     {
         $this->expectException(Exception::class);
-        $this->example->nonExistent;
+        $this->object->nonExistent = 'Hi!';
     }
 }
