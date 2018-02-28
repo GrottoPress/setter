@@ -24,7 +24,6 @@
         "php": ">=7.0"
     },
     "require-dev": {
-        "grottopress/getter": "^0.2",
         "codeception/codeception": "^2.3"
     },
     "autoload": {
@@ -32,5 +31,16 @@
     },
     "autoload-dev": {
         "psr-4": { "GrottoPress\\Setter\\": "tests/unit/" }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "chmod +x ./bin/*"
+        ],
+        "test": [
+            "./vendor/bin/codecept run unit"
+        ],
+        "release": [
+            "./bin/release"
+        ]
     }
 }
