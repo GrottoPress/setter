@@ -18,7 +18,7 @@ declare (strict_types = 1);
 
 namespace GrottoPress\Setter;
 
-use GrottoPress\Getter\Getter;
+use GrottoPress\Getter\GetterTrait;
 
 /**
  * Example Class
@@ -27,7 +27,7 @@ use GrottoPress\Getter\Getter;
  */
 class ExampleClass
 {
-    use Setter, Getter;
+    use SetterTrait, GetterTrait;
 
     private $canSet;
     private $cannotSet;
