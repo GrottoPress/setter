@@ -1,40 +1,14 @@
 <?php
-
-/**
- * Setter trait
- *
- * Set private object attributes directly,
- * without calling setter methods.
- *
- * @package GrottoPress\Setter
- * @since 0.4.0
- *
- * @author GrottoPress (https://www.grottopress.com)
- * @author N Atta Kusi Adusei (https://twitter.com/akadusei)
- */
-
 declare (strict_types = 1);
 
 namespace GrottoPress\Setter;
 
 use Exception;
 
-/**
- * Setter trait
- *
- * @since 0.4.0
- */
 trait SetterTrait
 {
     /**
-     * Get attribute
-     *
-     * @param string $attribute Name of attribute to set.
-     * @param mixed $value Value to set.
-     *
-     * @since 0.4.0
-     * @access public
-     *
+     * @param mixed $value
      * @return mixed
      */
     final public function __set(string $attribute, $value)
