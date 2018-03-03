@@ -11,7 +11,7 @@ trait SetterTrait
      * @param mixed $value
      * @return mixed
      */
-    final public function __set(string $attribute, $value)
+    public function __set(string $attribute, $value)
     {
         if (!\property_exists(static::class, $attribute)) {
             throw new Exception("'{$attribute}' attribute does not exist.");
