@@ -9,7 +9,6 @@ trait SetterTrait
 {
     /**
      * @param mixed $value
-     * @return mixed
      */
     public function __set(string $attribute, $value)
     {
