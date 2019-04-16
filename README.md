@@ -46,9 +46,9 @@ class MyClass {
 }
 
 // Instantiate
-$object = new MyClass();
+$object = new Vendor\MyClass();
 
 // Try to set attributes
-$object->changeMe = 'New Me!'; // Works!
-$object->leaveMeAlone = 'xyz'; // Error: 'setLeaveMeAlone()' not defined
+$object->changeMe = 'New Me!'; // => Works!
+$object->leaveMeAlone = 'xyz'; // => Error: 'setLeaveMeAlone()' not defined
 ```
