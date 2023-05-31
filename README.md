@@ -8,11 +8,15 @@ For example, instead of calling `$myObject->setMyAttr($newValue)`, you can just 
 
 This way, you get the benefit of syntactic sugar, while maintaining encapsulation.
 
-## Usage
+## Installation
 
 Install via composer:
 
-`composer require grottopress/setter`
+```bash
+composer require grottopress/setter
+```
+
+## Usage
 
 Import trait into your class, and use thus:
 
@@ -52,3 +56,17 @@ $object = new Vendor\MyClass();
 $object->changeMe = 'New Me!'; // => Works!
 $object->leaveMeAlone = 'xyz'; // => Error: 'setLeaveMeAlone()' not defined
 ```
+
+## Development
+
+Run tests with `composer run test`.
+
+## Contributing
+
+1. [Fork it](https://github.com/GrottoPress/setter/fork)
+1. Switch to the `master` branch: `git checkout master`
+1. Create your feature branch: `git checkout -b my-new-feature`
+1. Make your changes, updating changelog and documentation as appropriate.
+1. Commit your changes: `git commit`
+1. Push to the branch: `git push origin my-new-feature`
+1. Submit a new *Pull Request* against the `GrottoPress:master` branch.
